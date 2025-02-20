@@ -6,7 +6,7 @@ import { hashPassword } from '../helpers/authHelper';
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
-  @Post()
+  @Post('register')
   async create(@Body() createUserDto: CreateUserDto) {
     createUserDto.password = await hashPassword(createUserDto.password);
 
